@@ -1,0 +1,17 @@
+const expreess = require('express');
+const aiRoutes = require('./routes/ai.routes');
+const cors = require('cors');
+
+const app = expreess();
+
+app.use(cors());
+
+app.use(expreess.json()); 
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.use('/ai', aiRoutes);
+
+module.exports = app;   
