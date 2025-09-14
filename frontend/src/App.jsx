@@ -23,7 +23,8 @@ function App() {
   async function reviewCode() {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/ai/get-review", {
+      const baseUrl = import.meta.env.VITE_API_URL || "/api";
+      const response = await axios.post(`${baseUrl}/ai/get-review`, {
         code,
       });
       setReview(response.data);
