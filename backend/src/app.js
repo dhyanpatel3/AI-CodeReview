@@ -12,6 +12,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.use("/ai", aiRoutes);
+// Mount under /api to match Vercel route prefix
+app.use("/api/ai", aiRoutes);
 
 module.exports = app;
